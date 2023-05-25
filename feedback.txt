@@ -1,0 +1,82 @@
+Hi, this is Ireanne Cao (ixc3), looking at your Assignment A6.
+
+At the end of this document is the output of our testing program and a table indicating
+the points for each part. This grading feedback is designed to help you understand 
+how you can improve your assignment. The final score will be out of 95 points.
+The autograder awards a maximum of 75 points for correctness. The remaining 20
+points will be manually awarded for style, print statements and proper control flow (e.g using loops
+or if-statements appropriately).
+
+Style
+-----
+File contains lines over 80 characters: -1
+In reroll function, did not print an error message (using printer.print_rerolling)
+when a reroll is supposed to occur for a specific die: -1
+In reroll function, did not print out a new list of dice *once the reroll is
+completed*: -1
+Hard coded __str__ function, assuming five rows: -1
+In __str__ function, did not construct string by iterating over rows using a for
+loop or recursion: -2
+
+Functionality
+-------------
+In the __init__ function, if dice_list is None then you still need to initialize
+self.dice_list accordingly by making self.dice_list a list of n_dice Die objects.
+This means that the tests for len(hand.get_dice()) < MIN_DICE and > MAX_DICE
+also failed, but luckily for you, we are not deducting for that.
+
+In the mask_valid function, you return too early if a character in the mask is
+valid. By returning True in the for loop if False is not in bollist, you basically
+return True or False depending only on the first character of the mask. This is
+fine for False, since one invalid character means the whole mask is invalid, but
+for True, one valid character does not necessarily mean the whole mask is valid
+(what if there is an invalid character later in the mask?). For example, for the
+mask '1a41b', your function returns True because '1' is a valid character, but
+it should return False because there are invalid characters later.
+
+===========
+
+Style: 14/20
+Autograder: 73/75
+Total: 87/95
+
+Start grading of a6.py
+
+Max points for __init__ function: 10
+  2. Create a Hand with a die list that is None student code returns: 0 but correct answer should be: 5. 1 point deducted.
+Finished __init__ function
+
+Max points for mask_valid function: 10
+  5. Mask with digits out of bounds or non digits of correct length student code returns: True but correct answer should be: False. 1 point deducted.
+Finished mask_valid function
+
+Max points for get_n_dice function: 10
+Finished get_n_dice function
+
+Max points for get_dice function: 10
+Finished get_dice function
+
+Max points for contains function: 10
+Finished contains function
+
+Max points for score function: 10
+Finished score function
+
+Max points for reroll function: 10
+Finished reroll function
+
+Max points for str function: 5
+Finished str function
+
+1. __init__ function      9 out of 10
+2. mask_valid function    9 out of 10
+3. get_n_dice function   10 out of 10
+4. get_dice function     10 out of 10
+5. contains function     10 out of 10
+6. score function        10 out of 10
+7. reroll function       10 out of 10
+8. str function           5 out of  5
+-------------------------------------
+Total                    73 out of 75
+Deductions:              
+Total                       out of 75
